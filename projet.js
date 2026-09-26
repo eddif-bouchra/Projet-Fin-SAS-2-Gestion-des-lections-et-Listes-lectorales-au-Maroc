@@ -87,7 +87,7 @@ function affiche_Candidates(candidates) {
 		console.log("Nom :", candidates[i].nom)
 		console.log("Prenom :", candidates[i].prenom)
 		console.log("partiPlitique :", candidates[i].partiPolitique)
-		console.log("age :",candidates[i].age)
+		console.log("age :", candidates[i].age)
 		console.log("nombre de vaoute :", candidates[i].electeurs.length)
 		console.log("-------------------------------")
 	}
@@ -133,35 +133,34 @@ function Electeure() {
 
 
 
-function Modifier_info_partipolitique(){
+function Modifier_info_partipolitique() {
 	let partiPolitique_candidat = (prompt("Donner le CIN de candidates tu veux modifies : "))
-	let partiPlitique =(prompt("Donner nouvelle partiPolitique: "))
-	for(let i = 0 ; i< candidates.length ; i++){
-		if(candidates[i].cin === partiPolitique_candidat){
-			candidates[i].partiPolitique  = partiPlitique
+	let partiPlitique = (prompt("Donner nouvelle partiPolitique: "))
+	for (let i = 0; i < candidates.length; i++) {
+		if (candidates[i].cin === partiPolitique_candidat) {
+			candidates[i].partiPolitique = partiPlitique
 		}
 	}
 }
-function Modifier_info_age(){
+function Modifier_info_age() {
 	let info_candidat = (prompt("Donner le CIN de candidates tu veux modifies : "))
-	let Nage =(prompt("Donner nouvelle age: "))
-	for(let i = 0 ; i< candidates.length ; i++){
-		if(candidates[i].cin === info_candidat){
-			candidates[i].age  = Nage
+	let Nage = (prompt("Donner nouvelle age: "))
+	for (let i = 0; i < candidates.length; i++) {
+		if (candidates[i].cin === info_candidat) {
+			candidates[i].age = Nage
 		}
 	}
 }
 
-function Supprimer_un_candidat(){
+function Supprimer_un_candidat() {
 	let supreme_Cin = (prompt("entrer le  cin de candidat tu vuex supprimer: "))
-	for(let i = 0 ; candidates.length;i++){
-		if(candidates[i].cin === supreme_Cin){
-			candidates[i] = candidates[i+1]
+	for (let i = 0; i < candidates.length; i++) {
+		if (candidates[i].cin === supreme_Cin) {
+				candidates[i] = candidates[i + 1]
 		}
 	}
-	candidates.pop();
+	candidates.pop()
 }
-Supprimer_un_candidat()
-affiche_Candidates(candidates)
+
 
 
