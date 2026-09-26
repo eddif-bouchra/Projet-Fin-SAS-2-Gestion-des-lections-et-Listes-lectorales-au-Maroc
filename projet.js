@@ -152,3 +152,16 @@ function Modifier_info_age(){
 	}
 }
 
+function Supprimer_un_candidat(){
+	let supreme_Cin = (prompt("entrer le  cin de candidat tu vuex supprimer: "))
+	for(let i = 0 ; candidates.length;i++){
+		if(candidates[i].cin === supreme_Cin){
+			candidates[i] = candidates[i+1]
+		}
+	}
+	candidates.pop();
+}
+Supprimer_un_candidat()
+affiche_Candidates(candidates)
+
+
