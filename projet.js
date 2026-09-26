@@ -179,3 +179,12 @@ function afficher_nombre(){
 	return candidates.length
 }
 //console.log(afficher_nombre(candidates))
+
+function afficher_nombre_votes(){
+	let count = 0
+	for(let i = 0;i<candidates.length;i++){
+		count += candidates[i].electeurs.length 
+}
+	return count
+}
+//console.log(afficher_nombre_votes())
