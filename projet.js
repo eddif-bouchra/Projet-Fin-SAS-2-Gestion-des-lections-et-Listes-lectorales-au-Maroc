@@ -121,7 +121,7 @@ function Filtrer(candidates, partiPolitique) {
 }
 
 function Electeure() {
-	let cin_electeur = (prompt("saisir votre cin: "))
+	let cin_electeur = prompt("saisir votre cin: ")
 	let cin_candidatse = (prompt("entrer le cin de candidat sur lequel tu veux voter: "))
 	//Vérifier si l'électeur a le droit de voter (si sa CIN n'existe dans aucune des listes de votes d'un candidat)
 	for (let i of candidates) {
@@ -156,11 +156,33 @@ function Supprimer_un_candidat() {
 	let supreme_Cin = (prompt("entrer le  cin de candidat tu vuex supprimer: "))
 	for (let i = 0; i < candidates.length; i++) {
 		if (candidates[i].cin === supreme_Cin) {
-				candidates[i] = candidates[i + 1]
+			for(let j = i ;j < candidates.length - 1 ;j++){
+				candidates[j] = candidates[j + 1]
+		}
+		candidates.pop()
+	}
+	//candidates.pop()
+}
+}
+affiche_Candidates(candidates)
+Supprimer_un_candidat()
+affiche_Candidates(candidates)
+
+/*function recherche(element){
+	for(let i = 0;i < candidates.length;i++){
+		if(candidates[i].cin === element){
+			return i
 		}
 	}
-	candidates.pop()
 }
 
 
+function supprimer(){
+	let supreme_Cin = (prompt("entrer le  cin de candidat tu vuex supprimer: "))
+	for (let i = 0; i < candidates.length; i++){
+		if (candidates[i].cin === supreme_Cin){
+
+		}
+	}
+}*/
 
