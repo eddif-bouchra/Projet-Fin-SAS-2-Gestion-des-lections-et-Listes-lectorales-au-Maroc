@@ -175,3 +175,7 @@ function recherche_candidates(){
 }
 }
 //console.log(recherche_candidates())
+function afficher_nombre(){
+	return candidates.length
+}
+//console.log(afficher_nombre(candidates))
