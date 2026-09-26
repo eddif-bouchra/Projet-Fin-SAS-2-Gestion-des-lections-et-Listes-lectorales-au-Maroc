@@ -68,7 +68,7 @@ function Ajouter_Canditas(candidates, number) {
 			getPartiPolitique = "Indépendant"
 		const getAge = Number(prompt("ajouter votre age: "))
 		if (getAge < 18)
-			console.log(mineur)
+			console.log("mineur")
 		const getelecteurs = [] = prompt("")
 
 		Ajoute(getCin, getNom, getPrenom, getPartiPolitique, getAge, getelecteurs);
@@ -87,6 +87,7 @@ function affiche_Candidates(candidates) {
 		console.log("Nom :", candidates[i].nom)
 		console.log("Prenom :", candidates[i].prenom)
 		console.log("partiPlitique :", candidates[i].partiPolitique)
+		console.log("age :",candidates[i].age)
 		console.log("nombre de vaoute :", candidates[i].electeurs.length)
 		console.log("-------------------------------")
 	}
@@ -129,3 +130,25 @@ function Electeure() {
 		}
 	}
 }
+
+
+
+function Modifier_info_partipolitique(){
+	let partiPolitique_candidat = (prompt("Donner le CIN de candidates tu veux modifies : "))
+	let partiPlitique =(prompt("Donner nouvelle partiPolitique: "))
+	for(let i = 0 ; i< candidates.length ; i++){
+		if(candidates[i].cin === partiPolitique_candidat){
+			candidates[i].partiPolitique  = partiPlitique
+		}
+	}
+}
+function Modifier_info_age(){
+	let info_candidat = (prompt("Donner le CIN de candidates tu veux modifies : "))
+	let Nage =(prompt("Donner nouvelle age: "))
+	for(let i = 0 ; i< candidates.length ; i++){
+		if(candidates[i].cin === info_candidat){
+			candidates[i].age  = Nage
+		}
+	}
+}
+
