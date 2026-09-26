@@ -34,8 +34,10 @@ function Ajoute(cin,nom,prenom,partiPolitique,age,electeurs){
 	candidates.push(candidas)
 }
 // ajouter plusiers candidates
-function Ajouter_Canditas(){
-	const number = Number(prompt("combien des candidas tu peux ajouter ?: "));
+
+
+function Ajouter_Canditas(candidates ,number){
+	number = Number(prompt("combien des candidas tu peux ajouter ?: "));
 	for(let i = 1;i<= number;i++){
 		console.log("Candidats[" + i +"] : ");
 		const getCin = prompt("ajouter votre cin: ")
@@ -83,5 +85,17 @@ function tri_candidat(candidates){
 }
 affiche_Candidates(candidates)
 }
-tri_candidat(candidates)
+
+
+function Filtrer(candidates,partiPolitique){
+	let arr = [];
+	for(let i of candidates){
+		if(i.partiPolitique === partiPolitique){
+			arr.push(i);
+		}
+	}
+	affiche_Candidates(arr)
+
+	//candidates = candidates.filtrer(partiPolitique)
+}
 
