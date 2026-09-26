@@ -164,25 +164,14 @@ function Supprimer_un_candidat() {
 	//candidates.pop()
 }
 }
-affiche_Candidates(candidates)
-Supprimer_un_candidat()
-affiche_Candidates(candidates)
 
-/*function recherche(element){
+
+function recherche_candidates(){
+	let recherche_nom = prompt("Saisir le Nom de candidate tu veux cherché: ")
 	for(let i = 0;i < candidates.length;i++){
-		if(candidates[i].cin === element){
-			return i
+		if(candidates[i].nom === recherche_nom){
+			return candidates[i]
 		}
-	}
 }
-
-
-function supprimer(){
-	let supreme_Cin = (prompt("entrer le  cin de candidat tu vuex supprimer: "))
-	for (let i = 0; i < candidates.length; i++){
-		if (candidates[i].cin === supreme_Cin){
-
-		}
-	}
-}*/
-
+}
+//console.log(recherche_candidates())
