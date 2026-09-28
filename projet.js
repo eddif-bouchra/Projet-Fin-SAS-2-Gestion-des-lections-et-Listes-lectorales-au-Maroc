@@ -41,45 +41,64 @@ const candidates = [
 		electeurs: []
 	},
 ];
-//ajouter candidates
-function Ajoute(cin, nom, prenom, partiPolitique, age, electeurs) {
+function ajouter_Candidates(){
+	console.log("Ajouter un nouveau candidat");
+	let cin = prompt("Entre le cin candidat: ");
+	 let cinExist = false;
+    for(let i = 0 ; i<candidates.length ; i++){
+        if (candidates[i].cin === cin){
+            cinExist = true;
+        }
+    }
+
+    if(cinExist || cin.trim() === ""){
+        console.log("le cin existe déjà ou le champ est vide");
+        return;
+    }
+	let nom = prompt("entre le nom du candidat: ");
+    if(nom.trim() === ""){
+        console.log("tu n'as pas entrer un nom ");
+        return;
+    }
+    let prenom = prompt("entre le prenom du candidat: ");
+    if(prenom.trim() === ""){
+        console.log("le champ est vide");
+        return;
+    }
+	let age = Number(prompt("entre l'age du candidat: "));
+    if(age < 18 ){
+        console.log("l'age est moins que 18 ans ou tu n as pas entrer un age");
+        return;
+    }
+	 let partiPolitique = prompt("entre la parti_politique du candidat: ");
+
+    if(partiPolitique === ""){
+        partiPolitique = "indépendant";
+    }
 	const candidas = {
-		cin,
-		nom,
-		prenom,
-		partiPolitique,
-		age,
-		electeurs
+		cin : cin,
+		nom: nom,
+		prenom: prenom,
+		partiPolitique: parPartiPolitique, 
+		age: age,
+		electeurs : []
 	};
 	candidates.push(candidas)
+	console.log("le candidat ajouté avec succes")
 }
-// ajouter plusiers candidates
-
-
-function Ajouter_Canditas(candidates, number) {
-	number = Number(prompt("combien des candidas tu peux ajouter ?: "));
+//ajouter_Candidates()
+function Ajouter_Candidates(candidates, number) {
+	console.log("Ajouter plusieurs candidates a la fois")
+	number = Number(prompt("combien des candidas tu peux ajouter : "));
 	for (let i = 1; i <= number; i++) {
-		console.log("Candidats[" + i + "] : ");
-		const getCin = prompt("ajouter votre cin: ")
-		const getNom = prompt("ajouter votre nom: ")
-		const getPrenom = prompt("ajouter votre prenom: ")
-		let getPartiPolitique = prompt("ajouter votre partiPolitique: ")
-		if (getPartiPolitique === "")
-			getPartiPolitique = "Indépendant"
-		const getAge = Number(prompt("ajouter votre age: "))
-		if (getAge < 18)
-			console.log("mineur")
-		const getelecteurs = [] = prompt("")
+		console.log("Candidats[" + i + "] : ")
 
-		Ajoute(getCin, getNom, getPrenom, getPartiPolitique, getAge, getelecteurs);
+		ajouter_Candidates();
 
 	}
 }
+//console.log(Ajouter_Candidates())
 
-//Ajouter_Canditas()
-//console.log(candidates)
-
-//afficher candidates
 function affiche_Candidates(candidates) {
 	for (let i = 0; i < candidates.length; i++) {
 		console.log("candidat " + (i + 1) + ":")
@@ -104,14 +123,17 @@ function tri_candidat(candidates) {
 			}
 		}
 	}
-	affiche_Candidates(candidates)
 }
+
+//tri_candidat(candidates)
+//affiche_Candidates(candidates)
+
 
 
 function Filtrer(candidates, partiPolitique) {
 	let arr = [];
 	for (let i of candidates) {
-		if (i.partiPolitique === partiPolitique) {
+		if (i.partiPolitique.toLowerCase() === partiPolitique.toLowerCase()) {
 			arr.push(i);
 		}
 	}
@@ -119,7 +141,7 @@ function Filtrer(candidates, partiPolitique) {
 
 	//candidates = candidates.filtrer(partiPolitique)
 }
-
+//Filtrer(candidates,"PJD")
 function Electeure() {
 	let cin_electeur = prompt("saisir votre cin: ")
 	let cin_candidatse = (prompt("entrer le cin de candidat sur lequel tu veux voter: "))
@@ -169,25 +191,24 @@ function Supprimer_un_candidat() {
 function recherche_candidates(){
 	let recherche_nom = prompt("Saisir le Nom de candidate tu veux cherché: ")
 	for(let i = 0;i < candidates.length;i++){
-		if(candidates[i].nom === recherche_nom){
+		if(candidates[i].nom.toLowerCase() === recherche_nom.toLowerCase()){
 			return candidates[i]
 		}
 }
 }
 //console.log(recherche_candidates())
 function afficher_nombre(){
-	return candidates.length
+	console.log("nombre totel de candidats: " ,candidates.length)
 }
-//console.log(afficher_nombre(candidates))
 
 function afficher_nombre_votes(){
 	let count = 0
 	for(let i = 0;i<candidates.length;i++){
 		count += candidates[i].electeurs.length 
 }
-	return count
+	console.log("le nombre total de votes est: " ,count)
 }
-//console.log(afficher_nombre_votes())
+//afficher_nombre_votes()
 
 function Top3(){
 	tri_candidat(candidates)
@@ -228,4 +249,4 @@ function Statistiques_élection() {
 	Top3()
 	parPartiPolitique()
 }
-Statistiques_élection()
+//Statistiques_élection()
