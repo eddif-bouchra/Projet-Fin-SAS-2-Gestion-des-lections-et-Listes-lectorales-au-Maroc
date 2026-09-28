@@ -205,4 +205,20 @@ function Top3(){
 	
 	}	
 }
-Top3()
+//Top3()
+function parPartiPolitique(){
+    console.log("Le nombre de candidat par partiPolitique :");
+    const nbrCandidatParParti = {};
+    for(let i = 0 ; i < candidates.length ; i++){
+        let elem = candidates[i].partiPolitique;
+        if(! (elem in nbrCandidatParParti)){
+            nbrCandidatParParti[elem] = 1 ; 
+        }else{
+            nbrCandidatParParti[elem] += 1 ;
+        }
+    }
+    for(let parti in nbrCandidatParParti){
+        console.log(parti , nbrCandidatParParti[parti])
+    }
+}
+//console.log(parPartiPolitique())
