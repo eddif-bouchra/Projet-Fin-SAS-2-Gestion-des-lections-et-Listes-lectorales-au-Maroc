@@ -188,3 +188,21 @@ function afficher_nombre_votes(){
 	return count
 }
 //console.log(afficher_nombre_votes())
+
+function Top3(){
+	tri_candidat(candidates)
+	if(candidates === 0 ){
+		console.log("aucun candidat")
+		return
+	}
+	if(candidates.length < 3){
+		 let limite = candidates.length
+	}
+	else
+	limite = 3
+	for(let i = 0;i < limite ;i++){
+		console.log((i+1) + "- " + candidates[i].nom + " " + candidates[i].prenom + " " + candidates[i].partiPolitique + " "+candidates[i].electeurs.length)
+	
+	}	
+}
+Top3()
