@@ -221,4 +221,11 @@ function parPartiPolitique(){
         console.log(parti , nbrCandidatParParti[parti])
     }
 }
-//console.log(parPartiPolitique())
+//parPartiPolitique()
+function Statistiques_élection() {
+	afficher_nombre()
+	afficher_nombre_votes()
+	Top3()
+	parPartiPolitique()
+}
+Statistiques_élection()
