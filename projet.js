@@ -124,6 +124,10 @@ function tri_candidat(candidates) {
 		}
 	}
 }
+function affichage_trie(){
+	tri_candidat(candidates)
+	affiche_Candidates(candidates)
+}
 
 //tri_candidat(candidates)
 //affiche_Candidates(candidates)
@@ -141,15 +145,28 @@ function Filtrer(candidates, partiPolitique) {
 
 	//candidates = candidates.filtrer(partiPolitique)
 }
+
 //Filtrer(candidates,"PJD")
-function Electeure() {
-	let cin_electeur = prompt("saisir votre cin: ")
-	let cin_candidatse = (prompt("entrer le cin de candidat sur lequel tu veux voter: "))
-	//Vérifier si l'électeur a le droit de voter (si sa CIN n'existe dans aucune des listes de votes d'un candidat)
-	for (let i of candidates) {
-		if (i.cin === cin_candidatse) {
-			i.electeurs.push(cin_electeur)
-		}
+
+function AffichemenuCandidats(){
+	console.log("1. Afficher tous les candidats");
+    console.log("2. Trier par nombre de votes ");
+    console.log("3. Filtrer par parti politique");
+
+	let choix = prompt("ton choix : ");
+	switch(choix){
+		case "1":
+			affiche_Candidates(candidates);
+			break;
+		case "2" :
+				affichage_trie()
+				break;
+		case "3" :
+			let parti = prompt("entre le parti politique : ");
+			Filtrer(candidates,parti);
+			break;
+		default:
+			console.log("choix invalide");
 	}
 }
 
@@ -250,3 +267,62 @@ function Statistiques_élection() {
 	parPartiPolitique()
 }
 //Statistiques_élection()
+
+
+
+
+function Menu(){
+	let continuer = true;
+	while(continuer){
+		console.log(" 1 . Ajouter un nouveau candidat");
+        console.log(" 2 . Ajouter plusieurs candidats à la fois");
+        console.log(" 3 . Afficher la liste des candidats");
+        console.log(" 4 . Voter pour un candidat");
+        console.log(" 5 . Modifier les informations d'un candidat");
+        console.log(" 6 . Supprimer un candidat");
+        console.log(" 7 . Rechercher des candidats");
+        console.log(" 8 . Statistiques de l'election");
+        console.log(" 0 . Quitter");
+		let nombre = Number(prompt("entre le nombre de l'operation souhaiter :"))
+		switch(nombre){
+			case 1 :
+				ajouter_Candidates();
+				break;
+			case 2 : 
+				Ajouter_Candidates();
+				break;
+			case 3 :
+				AffichemenuCandidats();
+				break;
+			case 4 : 
+				Electeure();
+				break;
+			case 5 :
+			let n = Number(prompt("1 . age / 2 . partiPolitique : "));
+                if ( n === 1){
+                    Modifier_info_age();
+                }else if (n === 2){
+                    Modifier_info_partipolitique();
+                }
+                break;
+			case 6 :
+				Supprimer_un_candidat();
+				break;
+			case 7 :
+				recherche_candidates();
+				break;
+			case 8 :
+				Statistiques_élection();
+				break;
+			case 0 :
+				console.log("au revoir");
+                continuer = false;
+				break;
+			default :
+				console.log("choix invalide ressayer")
+
+		}
+	}
+	}
+	Menu();
+
