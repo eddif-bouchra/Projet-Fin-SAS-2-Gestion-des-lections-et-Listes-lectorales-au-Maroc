@@ -79,7 +79,7 @@ function ajouter_Candidates() {
 		cin: cin,
 		nom: nom,
 		prenom: prenom,
-		partiPolitique: parPartiPolitique,
+		partiPolitique: partiPolitique,
 		age: age,
 		electeurs: []
 	};
@@ -128,9 +128,6 @@ function affichage_trie() {
 	tri_candidat(candidates)
 	affiche_Candidates(candidates)
 }
-
-//tri_candidat(candidates)
-//affiche_Candidates(candidates)
 
 
 
@@ -201,11 +198,14 @@ function Modifier_info_partipolitique() {
 		if (candidates[i].cin === partiPolitique_candidat) {
 			candidates[i].partiPolitique = partiPlitique
 		}
+	
+	
 	}
 }
+//Modifier_info_partipolitique()
 function Modifier_info_age() {
 	let info_candidat = (prompt("Donner le CIN de candidates tu veux modifies : "))
-	let Nage = (prompt("Donner nouvelle age: "))
+	let Nage = Number(prompt("Donner nouvelle age: "))
 	for (let i = 0; i < candidates.length; i++) {
 		if (candidates[i].cin === info_candidat) {
 			candidates[i].age = Nage
@@ -225,7 +225,8 @@ function Supprimer_un_candidat() {
 		//candidates.pop()
 	}
 }
-
+//Supprimer_un_candidat()
+//affiche_Candidates(candidates)
 
 function recherche_candidates() {
 	let recherche_nom = prompt("Saisir le Nom de candidate tu veux cherché: ")
@@ -251,12 +252,13 @@ function afficher_nombre_votes() {
 
 function Top3() {
 	tri_candidat(candidates)
-	if (candidates === 0) {
+	if (candidates.length === 0) {
 		console.log("aucun candidat")
 		return
 	}
+	let limite;
 	if (candidates.length < 3) {
-		let limite = candidates.length
+		 limite = candidates.length
 	}
 	else
 		limite = 3
